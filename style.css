@@ -88,6 +88,7 @@ body {
   right: 1px;
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.5s ease all;
 }
 
 .sidebar {
@@ -234,3 +235,43 @@ body {
     opacity: 0.8;
     cursor: pointer;
 }
+
+
+.container.active{
+    background-color: white;
+}
+
+.movie-list-title.active{
+    color: black;
+}
+
+.navbar-container.active{
+    background-color: white;
+    color: black;
+}
+
+.sidebar.active{
+    background-color: white;
+}
+
+.left-menu-icon.active{
+    color: black;
+}
+
+.toggle.active{
+    background-color: black;
+}
+
+.toggle-ball.active{
+    background-color: white;
+    transform: translateX(-20px);
+}
+
+@media only screen and (max-width: 940px){
+    .menu-container{
+        display: none;
+    }
+}
+
+
+
