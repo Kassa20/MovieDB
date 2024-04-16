@@ -39,8 +39,10 @@ body {
   list-style: none;
 }
 
-.menu-list-item {
+.menu-list-item a {
   margin-right: 30px;
+  text-decoration: none;
+  color: white;
 }
 
 .menu-list-item.active {
@@ -122,6 +124,7 @@ body {
 .featured-content {
   height: 50vh;
   padding: 50px;
+  position: relative;
 }
 
 .featured-title {
@@ -150,8 +153,8 @@ body {
 }
 
 .movie-list-wrapper {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .movie-list {
@@ -176,9 +179,8 @@ body {
 .movie-list-item:hover .movie-list-item-title,
 .movie-list-item:hover .movie-list-item-desc,
 .movie-list-item:hover .movie-list-item-button {
-    opacity: 1;
+  opacity: 1;
 }
-
 
 .movie-list-item-img {
   transition: all 0.5s ease-in-out;
@@ -213,65 +215,85 @@ body {
 }
 
 .movie-list-item-button {
-    padding: 10px;
-    background-color: #4dbf00;
-    color: white;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
-    opacity: 0;
+  padding: 10px;
+  background-color: #4dbf00;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  opacity: 0;
 }
 
 .arrow {
-    font-size: 120px;
-    position: absolute;
-    top: 90px;
-    right: 0;
-    color: lightgray;
-    opacity: 0.8;
-    cursor: pointer;
+  font-size: 120px;
+  position: absolute;
+  top: 90px;
+  right: 0;
+  color: lightgray;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
+/* dark-mode  */
 
-.container.active{
-    background-color: white;
+.container.active {
+  background-color: white;
 }
 
-.movie-list-title.active{
-    color: black;
+.movie-list-title.active {
+  color: black;
 }
 
-.navbar-container.active{
-    background-color: white;
-    color: black;
+.navbar-container.active {
+  background-color: white;
+  color: black;
 }
 
-.sidebar.active{
-    background-color: white;
+.sidebar.active {
+  background-color: white;
 }
 
-.left-menu-icon.active{
-    color: black;
+.left-menu-icon.active {
+  color: black;
 }
 
-.toggle.active{
-    background-color: black;
+.toggle.active {
+  background-color: black;
 }
 
-.toggle-ball.active{
-    background-color: white;
-    transform: translateX(-20px);
+.toggle-ball.active {
+  background-color: white;
+  transform: translateX(-20px);
 }
 
-@media only screen and (max-width: 940px){
-    .menu-container{
-        display: none;
-    }
+@media only screen and (max-width: 940px) {
+  .menu-container {
+    display: none;
+  }
 }
 
+/* Inputs */
 
+.input-container {
+  position: absolute;
+  top: 400px;
+  margin-left: 400px;
+}
 
+.input {
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  color: var(--color-headings);
+  font-size: 1.5rem;
+  outline: 0;
+  padding: 1rem 4.5rem;
+  color: #151515;
+}
+
+::placeholder {
+  color: #cdcbd7;
+}
