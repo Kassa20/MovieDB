@@ -47,7 +47,7 @@ body {
 .menu-list-item a {
   margin-right: 30px;
   text-decoration: none;
-  color: rgb(190, 189, 189);
+  color: white;
   transition: 0.3s;
 }
 
@@ -55,6 +55,7 @@ body {
   color: white;
   filter: brightness(200%);
   opacity: 2;
+  text-shadow: 0 0 10px white; 
 }
 
 .menu-list-item.active {
@@ -305,6 +306,8 @@ body {
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
+  background-color: #AA0000;
+  color: white;
 }
 
 .input {
@@ -326,6 +329,7 @@ body {
   display: flex;
   width: 70%;
   margin: -100px auto;
+  border-color: #AA0000;
 }
 
 .input-group .input {
