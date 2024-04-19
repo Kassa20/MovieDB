@@ -3,8 +3,6 @@ const app = express()
 const path = require("path")
 
 
-// const api = require(path.join(__dirname, "/API"))
-// app.use("/api", api)
 
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./Data/test.sqlite', (err) => {
@@ -24,6 +22,7 @@ app.use("/", express.static(
 ))
 
 
+
 // handle signup page
 app.post("/signup", (req, res) => {
     const username = req.body.username
@@ -37,7 +36,7 @@ app.post("/signup", (req, res) => {
         } else {
             console.log(`Inserted user with ID ${this.lastID} into database.`);
             // res.send("User registered successfully.");
-            res.redirect(`/index.html?username=${encodeURIComponent(username)}`);
+            res.redirect(`/home.html?username=${encodeURIComponent(username)}`);
         }
     });
 })
@@ -63,13 +62,23 @@ app.post("/login", (req, res) => {
             return res.status(401).send("Invalid username or password.");
         } else {
             if (row.password === password) {
-                res.redirect(`/index.html?username=${encodeURIComponent(username)}`);
+                res.redirect(`/home.html?username=${encodeURIComponent(username)}`);
             } else {
                 return res.status(401).send("Invalid username or password.");
             }
         }
     });
 });
+
+app.get('/api/users', (req, res) => {
+    db.all('SELECT * FROM users', (err, rows) => {
+        if(err) {
+            console.error('Error fetching users', err)
+            return res.status(500).send('Internal server error')
+        }
+        res.send(rows)
+    })
+})
 
 
 app.listen(4004, (error) => {

@@ -379,3 +379,57 @@ body {
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid red;
 }
+
+/* ****************** */
+/* sign up / login CSS */
+
+form {
+  text-align: center;
+}
+
+.form-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #151515;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+  color: red;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 1rem;
+  border-radius: 30px;
+  border: 1px solid red;
+  color: black;
+  font-size: 1rem;
+  outline: 0;
+  padding: 1rem 2.5rem;
+}
+
+.form-button {
+  border-radius: 50px;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  text-align: center;
+  white-space: nowrap;
+  background-color: red;
+  color: rgb(239, 236, 236);
+}
+
+.redirect-link a {
+    color: red;
+}

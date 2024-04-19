@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <form action="/signup" method="post">
-        <label>Username</label>
-        <input name="username">
-        <label>Password</label>
-        <input type="password" name="password">
-        <button type="submit">Signup</button>
-    </form>
-</body>
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="/signup" method="post">
+        <h1 class="form-header">Sign up</h1>
+        <div class="form-inputs">
+          <input class="form-input" name="username" placeholder="username" />
+          <input class="form-input" type="password" name="password" placeholder="password" />
+        </div>
+        <p class="redirect-link"> <a href="/index.html">Already have an accout? login</a></p>
+        <button class="form-button"  type="submit">Sign up</button>
+      </form>
+    </div>
+  </body>
 </html>
