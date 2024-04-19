@@ -17,6 +17,7 @@ ball.addEventListener("click", ()=>{
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const username = urlParams.get('username');
+
 if (username) {
     document.getElementById("usernameDisplay").innerText = username;
 }
