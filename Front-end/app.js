@@ -1,13 +1,12 @@
 
+
 // form-validation 
-const form = document.getElementById('login-form');
-form.addEventListener('submit', function(event) {
+const form = document.getElementById("account");
+form?.addEventListener('submit', function(event) {
     const usernameInput = document.querySelector('input[name="username"]');
     const passwordInput = document.querySelector('input[name="password"]');
     const username = usernameInput.value.trim();
     const password = passwordInput.value;
-
-    console.log(200)
 
     const usernameRegex = /^[a-zA-Z0-9_]+$/;
 
@@ -20,15 +19,21 @@ form.addEventListener('submit', function(event) {
 
     if (!usernameRegex.test(username)) {
         event.preventDefault(); // Prevent form submission
-        alert('Username should only contain alphanumeric characters and underscores.');
+        const reg = document.getElementById("error")
+        reg.innerHTML += 'special characters not allowed in username'
+        reg.style.display = 'block'
         return;
     }
 
+    // if(password.length < 4){
+    //     const pass = document.getElementById("error")
+    //     pass.innerHTML += 'password less than four characters'
+    //     pass.style.display = 'block'
+    // }
 
-    // Additional validation logic here (e.g., check password length, format)
 
-    // If all validation passes, the form will be submitted as usual
 });
+
 
 
 
@@ -37,11 +42,11 @@ form.addEventListener('submit', function(event) {
 const arrows = document.querySelectorAll(".arrow");
 const movieLists = document.querySelectorAll(".movie-list")
 
-const ball = document.getElementById('toggle')
+const ball = document.querySelector(".toggle-ball")
 const items = document.querySelectorAll(".container, .movie-list-title, .navbar-container, .sidebar, .left-menu-icon, .toggle")
 
 // dark mode logic 
-ball.addEventListener("click", ()=>{
+ball?.addEventListener("click", ()=>{
     items.forEach(item=>{
         item.classList.toggle("active")
     })
@@ -58,12 +63,24 @@ if (username) {
     document.getElementById("usernameDisplay").innerText = username;
 }
 
+// Display error on page 
+const query = window.location.search;
+const ur = new URLSearchParams(queryString);
+const error = urlParams.get('error');
+
+if(error) {
+    const tmp = document.getElementById("error");
+    tmp.innerHTML += error
+    tmp.style.display = 'block'
+}
+
+
 // drop-down
 let i = 1
 const profileContainer = document.querySelector('.profile-text-container');
 const dropdown = document.getElementById('drop-down');
 
-profileContainer.addEventListener('click', function() {
+profileContainer?.addEventListener('click', function() {
     if(i == 1){
         dropdown.style.display = 'block';
         i = -1
@@ -80,7 +97,7 @@ profileContainer.addEventListener('click', function() {
 arrows.forEach((arrow, i) => {
     const itemNumber = movieLists[i].querySelectorAll("img").length
     let clickCounter = 0
-    arrow.addEventListener("click", () => {
+    arrow?.addEventListener("click", () => {
         const ratio = Math.floor(window.innerWidth / 270)
         clickCounter++
         if(itemNumber - (4 + clickCounter) + (4 - ratio) >= 0){
@@ -145,7 +162,7 @@ function fetchMovies(count) {
 
 // Event listener for checkbox
 const checkbox = document.querySelector(".check-box");
-checkbox.addEventListener('change', function() {
+checkbox?.addEventListener('change', function() {
     if (this.checked) {
         topMoviesCount = 100; 
     } else {

@@ -464,3 +464,12 @@ form {
 .redirect-link a {
   color: red;
 }
+
+.error{
+    color: rgb(255, 0, 0);
+    font-size: 0.7rem;
+    position: absolute;
+    top: 270px;
+    left: 650px;
+    display: none;
+}

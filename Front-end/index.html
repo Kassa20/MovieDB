@@ -8,10 +8,11 @@
   </head>
   <body>
     <div class="form-container">
-      <form action="/login" method="post" id="login-form">
+      <form action="/login" method="post" id="account">
         <h1 class="form-header">Log in</h1>
         <div class="form-inputs">
           <input class="form-input" name="username" placeholder="username" required/>
+          <p class="error" id="error"></p>
           <input class="form-input" type="password" name="password" placeholder="password" required/>
         </div>
         <p class="redirect-link"> <a href="/signup.html">Don't have an accout? sign up</a></p>

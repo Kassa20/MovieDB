@@ -46,6 +46,7 @@ app.post("/signup", (req, res) => {
 app.post("/login", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
+    let error = 'Invalid username or password'
 
     if (!username || !password) {
         return res.status(400).send("Username and password are required.");
@@ -59,12 +60,13 @@ app.post("/login", (req, res) => {
         }
 
         if (!row) {
-            return res.status(401).send("Invalid username or password.");
+            return res.redirect(`/index.html?error=${encodeURIComponent(error)}`);
         } else {
             if (row.password === password) {
                 res.redirect(`/home.html?username=${encodeURIComponent(username)}`);
             } else {
-                return res.status(401).send("Invalid username or password.");
+                error = 'incorrect password'
+                return res.redirect(`/index.html?error=${encodeURIComponent(error)}`);
             }
         }
     });
