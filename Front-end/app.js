@@ -1,8 +1,43 @@
 
+// form-validation 
+const form = document.getElementById('login-form');
+form.addEventListener('submit', function(event) {
+    const usernameInput = document.querySelector('input[name="username"]');
+    const passwordInput = document.querySelector('input[name="password"]');
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
+
+    console.log(200)
+
+    const usernameRegex = /^[a-zA-Z0-9_]+$/;
+
+
+    if (username === '' || password === '') {
+        event.preventDefault(); // Prevent form submission
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    if (!usernameRegex.test(username)) {
+        event.preventDefault(); // Prevent form submission
+        alert('Username should only contain alphanumeric characters and underscores.');
+        return;
+    }
+
+
+    // Additional validation logic here (e.g., check password length, format)
+
+    // If all validation passes, the form will be submitted as usual
+});
+
+
+
+
+
 const arrows = document.querySelectorAll(".arrow");
 const movieLists = document.querySelectorAll(".movie-list")
 
-const ball = document.querySelector(".toggle-ball")
+const ball = document.getElementById('toggle')
 const items = document.querySelectorAll(".container, .movie-list-title, .navbar-container, .sidebar, .left-menu-icon, .toggle")
 
 // dark mode logic 
@@ -23,13 +58,28 @@ if (username) {
     document.getElementById("usernameDisplay").innerText = username;
 }
 
+// drop-down
+let i = 1
+const profileContainer = document.querySelector('.profile-text-container');
+const dropdown = document.getElementById('drop-down');
+
+profileContainer.addEventListener('click', function() {
+    if(i == 1){
+        dropdown.style.display = 'block';
+        i = -1
+    }
+    else {
+          dropdown.style.display = 'none';
+          i = 1
+    }
+});
+
 
 
 // logic for horizontal scrolling 
 arrows.forEach((arrow, i) => {
     const itemNumber = movieLists[i].querySelectorAll("img").length
     let clickCounter = 0
-    console.log(itemNumber)
     arrow.addEventListener("click", () => {
         const ratio = Math.floor(window.innerWidth / 270)
         clickCounter++

@@ -55,7 +55,7 @@ body {
   color: white;
   filter: brightness(200%);
   opacity: 2;
-  text-shadow: 0 0 10px white; 
+  text-shadow: 0 0 10px white;
 }
 
 .menu-list-item.active {
@@ -79,6 +79,28 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* Drop-down */
+.dropdown li {
+  list-style: none;
+}
+.dropdown a {
+  text-decoration: none;
+}
+
+.dropdown {
+  display: none;
+  right: 110px;
+  top: 45px;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  transition: 0.5s ease;
+  border-radius: 10px;
+  border-color: rgb(250, 134, 134);
+}
+
 
 .toggle {
   width: 40px;
@@ -306,7 +328,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  background-color: #AA0000;
+  background-color: #aa0000;
   color: white;
 }
 
@@ -329,7 +351,7 @@ body {
   display: flex;
   width: 70%;
   margin: -100px auto;
-  border-color: #AA0000;
+  border-color: #aa0000;
 }
 
 .input-group .input {
@@ -368,8 +390,8 @@ body {
   font-weight: bold;
 }
 
-.check-box-container{
-    margin-bottom: 0.5rem;
+.check-box-container {
+  margin-bottom: 0.5rem;
 }
 
 .content-table th,
@@ -440,5 +462,5 @@ form {
 }
 
 .redirect-link a {
-    color: red;
+  color: red;
 }
