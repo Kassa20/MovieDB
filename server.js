@@ -3,6 +3,13 @@ const app = express()
 const path = require("path")
 
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+app.use("/", express.static(
+    path.join(__dirname, "/Front-end")
+))
+
 
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./Data/test.sqlite', (err) => {
@@ -14,29 +21,12 @@ const db = new sqlite3.Database('./Data/test.sqlite', (err) => {
 });
 
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
 
-const session = require('express-session');
-
-app.use(session({
-    secret: 'key', 
-    resave: false,
-    saveUninitialized: true
-}));
-
-
-app.use("/", express.static(
-    path.join(__dirname, "/Front-end")
-))
-
-let username = ''
-let password = ''
 
 // handle signup page
 app.post("/signup", (req, res) => {
-    username = req.body.username
-    password = req.body.password
+    const username = req.body.username
+    const password = req.body.password
 
     const sql = `INSERT INTO users (username, password) VALUES (?, ?)`;
     db.run(sql, [username, password], function(err) {
@@ -54,8 +44,8 @@ app.post("/signup", (req, res) => {
 
 // handle login-page
 app.post("/login", (req, res) => {
-    username = req.body.username;
-    password = req.body.password;
+    const username = req.body.username;
+    const password = req.body.password;
 
     if (!username || !password) {
         return res.status(400).send("Username and password are required.");
@@ -81,10 +71,6 @@ app.post("/login", (req, res) => {
 });
 
 
-// app.post('/movies.html', (req, res) => {
-
-//     req.redirect(`/movies.html?username=${encodeURIComponent(username)}`);
-// });
 
 
 app.get('/api/users', (req, res) => {
