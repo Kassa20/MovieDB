@@ -101,7 +101,6 @@ body {
   border-color: rgb(250, 134, 134);
 }
 
-
 .toggle {
   width: 40px;
   height: 20px;
@@ -157,7 +156,11 @@ body {
 }
 
 .featured-content {
-  height: 50vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515),
+    url("img/cover.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 45vh;
   padding: 50px;
 }
 
@@ -465,11 +468,11 @@ form {
   color: red;
 }
 
-.error{
-    color: rgb(255, 0, 0);
-    font-size: 0.7rem;
-    position: absolute;
-    top: 270px;
-    left: 650px;
-    display: none;
+.error {
+  color: rgb(255, 0, 0);
+  font-size: 0.7rem;
+  position: absolute;
+  top: 426px;
+  left: 950px;
+  display: none;
 }

@@ -94,10 +94,10 @@ profileContainer?.addEventListener('click', function() {
 
 
 // logic for horizontal scrolling 
-arrows.forEach((arrow, i) => {
+arrows?.forEach((arrow, i) => {
     const itemNumber = movieLists[i].querySelectorAll("img").length
     let clickCounter = 0
-    arrow?.addEventListener("click", () => {
+    arrow.addEventListener("click", () => {
         const ratio = Math.floor(window.innerWidth / 270)
         clickCounter++
         if(itemNumber - (4 + clickCounter) + (4 - ratio) >= 0){
@@ -117,46 +117,46 @@ arrows.forEach((arrow, i) => {
 
 //fetch movies from MovieAPI
 
-const url = 'https://online-movie-database.p.rapidapi.com/title/v2/get-chart-rankings?rankingsChartType=TOP_250&first=100';
-let topMoviesCount = 20; 
-fetchMovies(topMoviesCount);
+// const url = 'https://online-movie-database.p.rapidapi.com/title/v2/get-chart-rankings?rankingsChartType=TOP_250&first=100';
+// let topMoviesCount = 20; 
+// fetchMovies(topMoviesCount);
 
-function fetchMovies(count) {
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '141d834db9msh6963c5ac2621dfdp121ed7jsn3784efe1e456',
-            'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const list = data.data.titleChartRankings.edges.slice(0, count); 
-        // console.log(list);
-        let rank = 1;
+// function fetchMovies(count) {
+//     fetch(url, {
+//         method: 'GET',
+//         headers: {
+//             'X-RapidAPI-Key': '141d834db9msh6963c5ac2621dfdp121ed7jsn3784efe1e456',
+//             'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         const list = data.data.titleChartRankings.edges.slice(0, count); 
+//         // console.log(list);
+//         let rank = 1;
 
-        const tableBody = document.querySelector(".table-body");
-        tableBody.innerHTML = ''; 
+//         const tableBody = document.querySelector(".table-body");
+//         tableBody.innerHTML = ''; 
 
-        list.forEach(item => {
-            const rating = item.node.chartRating.toFixed(1);
-            const title = item.node.item.originalTitleText.text;
-            const year = item.node.item.releaseYear.year;
-            const movie = `
-                <tr>
-                    <td>${rank}</td>
-                    <td>${title}</td>
-                    <td>${rating}</td>
-                    <td>${year}</td>
-                </tr>`;
-            tableBody.innerHTML += movie;
-            rank++;
-        });
-    })
-    .catch(err => {
-        console.log(err);
-    });
-}
+//         list.forEach(item => {
+//             const rating = item.node.chartRating.toFixed(1);
+//             const title = item.node.item.originalTitleText.text;
+//             const year = item.node.item.releaseYear.year;
+//             const movie = `
+//                 <tr>
+//                     <td>${rank}</td>
+//                     <td>${title}</td>
+//                     <td>${rating}</td>
+//                     <td>${year}</td>
+//                 </tr>`;
+//             tableBody.innerHTML += movie;
+//             rank++;
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
+// }
 
 
 
