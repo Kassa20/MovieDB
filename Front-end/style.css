@@ -7,7 +7,9 @@ html {
 } */
 
 body {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Sen", sans-serif;
+  font-weight: 600;
 }
 
 .navbar {
@@ -475,4 +477,22 @@ form {
   top: 426px;
   left: 950px;
   display: none;
+}
+
+.footer {
+  background-color: black;
+  height: 200px;
+  color: #8d8c8c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p {
+  padding: 0.5rem;
+}
+
+.footer a {
+  color: #8d8c8c;
 }
