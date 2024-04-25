@@ -113,8 +113,6 @@ arrows?.forEach((arrow, i) => {
 })
 
 
-
-
 //fetch movies from MovieAPI
 
 // const url = 'https://online-movie-database.p.rapidapi.com/title/v2/get-chart-rankings?rankingsChartType=TOP_250&first=100';
@@ -159,17 +157,46 @@ arrows?.forEach((arrow, i) => {
 // }
 
 
-
 // Event listener for checkbox
 const checkbox = document.querySelector(".check-box");
 checkbox?.addEventListener('change', function() {
     if (this.checked) {
-        topMoviesCount = 100; 
-    } else {
-        topMoviesCount = 20; 
-    }
-    fetchMovies(topMoviesCount); 
+        getMovies(BASE_URL + '/movie/top_rated?language=en-US&page=2&' + API_KEY);
+    } 
 });
+
+
+const API_KEY = 'api_key=e0f225f95777b19d6dbb2d2a4b71217c'
+const BASE_URL = 'https://api.themoviedb.org/3'
+const API_URL = BASE_URL + '/movie/top_rated?language=en-US&page=1&' + API_KEY
+const IMG_URL = 'https://image.tmdb.org/t/p/w500'
+
+getMovies(API_URL)
+
+function getMovies(url) {
+
+    fetch(url).then(res => res.json()).then(data => {
+        console.log(data)
+        showMovies(data.results)        
+    })
+}
+
+function showMovies(data) {
+    const tableBody = document.querySelector(".table-body");
+    data.forEach(movie => {
+        const {title, poster_path, vote_average, overview, release_date} = movie
+        const row = `<tr>
+                        <td><img class="top-img" src="${IMG_URL+poster_path}"></td>
+                        <td>${vote_average.toFixed(1)}</td>
+                        <td>${overview}</td>
+                        <td>${release_date}</td>
+                      </tr>`;
+        tableBody.innerHTML += row;
+    })
+}
+
+
+
 
 
 
