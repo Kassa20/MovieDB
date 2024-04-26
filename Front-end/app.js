@@ -197,7 +197,7 @@ function showMovies(data) {
                         <td>${overview}</td>
                         <td>${release_date}</td>
                       </tr>`;
-        // tableBody.innerHTML += row;
+        tableBody.innerHTML += row;
     })
 }
 
@@ -206,7 +206,7 @@ const button = document.getElementById('search')
 const input = document.getElementById('search-input')
 
 
-button.addEventListener('click', (e) => {
+button?.addEventListener('click', (e) => {
     e.preventDefault();
     const searchTerm = input.value
     console.log(searchTerm)
