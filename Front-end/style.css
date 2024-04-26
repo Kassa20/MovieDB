@@ -259,7 +259,7 @@ body {
 
 .movie-list-item-button {
   padding: 10px;
-  background-color: #4dbf00;
+  background-color: red;
   color: white;
   border-radius: 10px;
   outline: none;
@@ -544,7 +544,6 @@ form {
   font-size: 12px;
   position: absolute;
   top: 30%;
-  
   width: 230px;
   opacity: 0;
   transition: 0.5s all ease-in-out;
@@ -552,7 +551,7 @@ form {
 
 .search-item-button {
   padding: 10px;
-  background-color: #4dbf00;
+  background-color: red;
   color: white;
   border-radius: 10px;
   outline: none;
