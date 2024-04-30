@@ -17,7 +17,8 @@ body {
   height: 50px;
   background-color: black;
   /* padding: 0.5rem; */
-  padding-top: 0.5rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
 }
 
 .navbar-container {
@@ -77,8 +78,8 @@ body {
 }
 
 .profile-picture {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -188,6 +189,11 @@ body {
   cursor: pointer;
 }
 
+.featured-button a {
+  text-decoration: none;
+  color: white;
+}
+
 /* ***************************** */
 /* movie list */
 
@@ -292,6 +298,25 @@ body {
   color: black;
 }
 
+.menu-list-item a.active:hover {
+  color: black;
+  filter: brightness(100%);
+  opacity: 2;
+  text-shadow: 0 0 0.8px black;
+}
+
+a.active {
+  color: black;
+}
+
+span.active {
+  color: black;
+}
+
+.table-body.active {
+  color: black;
+}
+
 .navbar-container.active {
   background-color: white;
   color: black;
@@ -372,6 +397,30 @@ body {
   margin: 4px;
 }
 
+/* FOR INPUT */
+@media only screen and (max-width: 767px) {
+  .btn {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+  }
+
+  .input {
+    font-size: 0.9rem;
+  }
+
+  .input-group .input {
+    border: 0;
+    flex-grow: 1;
+    padding: 1rem 2rem;
+    width: 0;
+  }
+
+  .input-group {
+    width: 90%;
+  }
+}
+
 /* ***************************** */
 /* IMDB Table */
 
@@ -432,6 +481,7 @@ form {
   justify-content: center;
   align-items: center;
   background-color: #151515;
+  position: relative;
 }
 
 .form-header {
@@ -442,6 +492,7 @@ form {
 .form-inputs {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .form-input {
@@ -476,9 +527,9 @@ form {
   color: rgb(255, 0, 0);
   font-size: 0.7rem;
   position: absolute;
-  top: 426px;
-  left: 950px;
-  display: none;
+  display: block;
+  top: 54px;
+  left: 80px;
 }
 
 .footer {
@@ -522,8 +573,8 @@ form {
   transition: 0.5s ease-out;
 }
 
-.search-item{
-    position: relative;
+.search-item {
+  position: relative;
 }
 
 .search-item-title {
@@ -564,13 +615,52 @@ form {
 }
 
 .search-item:hover img {
-    transform: scale(1.2);
-    margin: 0 30px;
-    opacity: 0.5;
+  transform: scale(1.2);
+  margin: 0 30px;
+  opacity: 0.5;
 }
 
 .search-item:hover .search-item-title,
 .search-item:hover .search-item-desc,
-.search-item:hover .search-item-button{
+.search-item:hover .search-item-button {
   opacity: 1;
+}
+
+/* FOR SEARCH-RESULT */
+@media only screen and (max-width: 767px) {
+  #search-result {
+    width: 70%;
+    margin: 100px auto 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 8rem;
+  }
+
+  #search-result img {
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 5rem;
+    max-height: 500px;
+    width: 80%;
+    transition: 0.5s ease-out;
+  }
+
+  .search-item-title {
+    font-size: 15px;
+  }
+
+  .search-item-button {
+    padding: 7px;
+  }
+}
+
+.logo {
+  width: 80%;
+}
+
+
+@media only screen and (max-width:768px){
+    .logo{
+        width: 20%;
+    }
 }

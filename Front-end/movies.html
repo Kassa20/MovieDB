@@ -28,7 +28,7 @@
     <div class="navbar">
       <div class="navbar-container">
         <div class="logo-container">
-          <h1 class="logo">Logo</h1>
+          <img class="logo" src="img/logo.png" alt="">
         </div>
         <div class="menu-container">
           <ul class="menu-list">
@@ -38,10 +38,13 @@
           </ul>
         </div>
         <div class="profile-container">
-          <img class="profile-picture" src="img/profile.jpg" alt="" />
+          <img class="profile-picture" src="img/user.webp" alt="" />
           <div class="profile-text-container">
-            <span class="profile-text"></span>
+            <span class="profile-text" id="usernameDisplay"></span>
             <i class="fa-solid fa-caret-down"></i>
+            <ul class="dropdown" id="drop-down">
+              <li><a href="index.html">Logout</a></li>
+            </ul>
           </div>
 
           <div class="toggle">
@@ -68,7 +71,11 @@
         <div class="featured-content">
           <img class="featured-title" src="img/title.png" alt="" />
           <p class="featured-desc"></p>
-          <button class="featured-button">WATCH TRAILER</button>
+          <button class="featured-button">
+            <a href="https://youtu.be/2LqzF5WauAw" target="_blank"
+              >WATCH TRAILER</a
+            >
+          </button>
         </div>
 
         <div class="movie-list-container">

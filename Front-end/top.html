@@ -23,7 +23,7 @@
     <div class="navbar">
       <div class="navbar-container">
         <div class="logo-container">
-          <!-- <h1 class="logo">Logo</h1> -->
+          <img class="logo" src="img/logo.png" alt="" />
         </div>
         <div class="menu-container">
           <ul class="menu-list">
@@ -35,10 +35,13 @@
           </ul>
         </div>
         <div class="profile-container">
-          <img class="profile-picture" src="img/profile.jpg" alt="" />
+          <img class="profile-picture" src="img/user.webp" alt="" />
           <div class="profile-text-container">
-            <span class="profile-text">Profile</span>
+            <span class="profile-text" id="usernameDisplay"></span>
             <i class="fa-solid fa-caret-down"></i>
+            <ul class="dropdown" id="drop-down">
+              <li><a href="index.html">Logout</a></li>
+            </ul>
           </div>
 
           <div class="toggle">
@@ -63,9 +66,10 @@
     <div class="container">
       <div class="content-container">
         <div class="table-content">
-            <div class="check-box-container">
-                <input type="checkbox" name="check-box" id="" class="check-box"> <span>Top 40</span>
-            </div>
+          <div class="check-box-container">
+            <input type="checkbox" name="check-box" id="" class="check-box" />
+            <span>Top 40</span>
+          </div>
           <table class="content-table">
             <thead>
               <tr>

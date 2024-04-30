@@ -2,12 +2,14 @@
 
 // form-validation 
 const form = document.getElementById("account");
+
+
 form?.addEventListener('submit', function(event) {
     const usernameInput = document.querySelector('input[name="username"]');
     const passwordInput = document.querySelector('input[name="password"]');
     const username = usernameInput.value.trim();
-    const password = passwordInput.value;
 
+    const password = passwordInput.value;
     const usernameRegex = /^[a-zA-Z0-9_]+$/;
 
 
@@ -20,7 +22,7 @@ form?.addEventListener('submit', function(event) {
     if (!usernameRegex.test(username)) {
         event.preventDefault(); // Prevent form submission
         const reg = document.getElementById("error")
-        reg.innerHTML += 'special characters not allowed in username'
+        reg.innerText += 'special characters not allowed'
         reg.style.display = 'block'
         return;
     }
@@ -38,12 +40,11 @@ form?.addEventListener('submit', function(event) {
 
 
 
-
 const arrows = document.querySelectorAll(".arrow");
 const movieLists = document.querySelectorAll(".movie-list")
 
 const ball = document.querySelector(".toggle-ball")
-const items = document.querySelectorAll(".container, .movie-list-title, .navbar-container, .sidebar, .left-menu-icon, .toggle")
+const items = document.querySelectorAll(".container, .movie-list-title, .navbar-container, .sidebar, .left-menu-icon, .toggle, a, .table-body, span")
 
 // dark mode logic 
 ball?.addEventListener("click", ()=>{
@@ -54,18 +55,24 @@ ball?.addEventListener("click", ()=>{
 })
 
 
+
 // Display username on the page
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const username = urlParams.get('username');
 
-if (username) {
-    document.getElementById("usernameDisplay").innerText = username;
-}
+// if (username) {
+//     document.getElementById("usernameDisplay").innerText = username;
+// }
+// else{
+//     document.getElementById("usernameDisplay").innerText = 'name';
+// }
+
+
 
 // Display error on page 
 const query = window.location.search;
-const ur = new URLSearchParams(queryString);
+const ur = new URLSearchParams(query);
 const error = urlParams.get('error');
 
 if(error) {
@@ -73,6 +80,7 @@ if(error) {
     tmp.innerHTML += error
     tmp.style.display = 'block'
 }
+
 
 
 // drop-down
@@ -113,48 +121,7 @@ arrows?.forEach((arrow, i) => {
 })
 
 
-//fetch movies from MovieAPI
 
-// const url = 'https://online-movie-database.p.rapidapi.com/title/v2/get-chart-rankings?rankingsChartType=TOP_250&first=100';
-// let topMoviesCount = 20; 
-// fetchMovies(topMoviesCount);
-
-// function fetchMovies(count) {
-//     fetch(url, {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Key': '141d834db9msh6963c5ac2621dfdp121ed7jsn3784efe1e456',
-//             'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-//         }
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         const list = data.data.titleChartRankings.edges.slice(0, count); 
-//         // console.log(list);
-//         let rank = 1;
-
-//         const tableBody = document.querySelector(".table-body");
-//         tableBody.innerHTML = ''; 
-
-//         list.forEach(item => {
-//             const rating = item.node.chartRating.toFixed(1);
-//             const title = item.node.item.originalTitleText.text;
-//             const year = item.node.item.releaseYear.year;
-//             const movie = `
-//                 <tr>
-//                     <td>${rank}</td>
-//                     <td>${title}</td>
-//                     <td>${rating}</td>
-//                     <td>${year}</td>
-//                 </tr>`;
-//             tableBody.innerHTML += movie;
-//             rank++;
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     });
-// }
 
 
 // Event listener for checkbox
@@ -209,6 +176,7 @@ const input = document.getElementById('search-input')
 button?.addEventListener('click', (e) => {
     e.preventDefault();
     const searchTerm = input.value
+    input.value = ''
     console.log(searchTerm)
 
     if(searchTerm){

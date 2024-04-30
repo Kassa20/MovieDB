@@ -1,10 +1,19 @@
 const express = require("express")
 const app = express()
 const path = require("path")
+const session = require('express-session');
+
 
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
+app.use(session({
+    secret: 'secret',
+    cookie: {maxAge: 30000},
+    saveUninitialized: false
+}));
+  
 
 app.use("/", express.static(
     path.join(__dirname, "/Front-end")
@@ -64,6 +73,7 @@ app.post("/login", (req, res) => {
         } else {
             if (row.password === password) {
                 res.redirect(`/home.html?username=${encodeURIComponent(username)}`);
+                // req.session.username = username;
             } else {
                 error = 'incorrect password'
                 return res.redirect(`/index.html?error=${encodeURIComponent(error)}`);
