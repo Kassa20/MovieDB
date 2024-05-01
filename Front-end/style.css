@@ -240,7 +240,7 @@ body {
 }
 
 .movie-list-item-title {
-  background-color: #333;
+  background-color: transparent;
   padding: 0 10px;
   font-size: 32px;
   font-weight: bold;
@@ -252,7 +252,7 @@ body {
 }
 
 .movie-list-item-desc {
-  background-color: #333;
+  background-color: transparent;
   padding: 10px;
   font-size: 14px;
   position: absolute;
@@ -370,6 +370,7 @@ span.active {
   font-size: 1.1rem;
   outline: 0;
   padding: 1.5rem 3.5rem;
+  margin: 0.2rem;
 }
 
 ::placeholder {
@@ -578,7 +579,7 @@ form {
 }
 
 .search-item-title {
-  background-color: #333;
+  background-color: transparent;
   padding: 0 10px;
   font-size: 25px;
   font-weight: bold;
@@ -590,7 +591,7 @@ form {
 }
 
 .search-item-desc {
-  background-color: #333;
+  background-color: transparent;
   padding: 10px;
   font-size: 12px;
   position: absolute;
@@ -658,9 +659,8 @@ form {
   width: 50%;
 }
 
-
-@media only screen and (max-width:768px){
-    .logo{
-        width: 20%;
-    }
+@media only screen and (max-width: 768px) {
+  .logo {
+    width: 20%;
+  }
 }
